@@ -1,22 +1,25 @@
-let books = [
-    { id: '1', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
-    { id: '2', title: 'To Kill a Mockingbird', author: 'Harper Lee' },
-    // Add more books as needed
+let meals = [
+    { id: '1', dish: 'Coconut Rice', chef: 'Hilda Baci' },
+    { id: '2', dish: 'MeatLoaf', chef: 'Gordon Ramsy' },
+    // Add more meals as needed
   ];
   
   const resolvers = {
+     //resolve the queries
     Query: {
-      books: () => books,
+      meals: () => meals,
     },
 
+
+    //resolve the mutations
     Mutation: {
-      createBook: (_, { title, author }) => {
-        const newBook = { id: String(books.length + 1), title, author };
-        books.push(newBook);
-        return newBook;
+      createMeal: (_, { dish, chef }) => {
+        const newMeal = { id: String(meals.length + 1), dish, chef };
+        meals.push(newMeal);
+        return newMeal;
       },
     },
-    
+
   };
   
   module.exports = resolvers;
